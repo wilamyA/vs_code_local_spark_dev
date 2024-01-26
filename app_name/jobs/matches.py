@@ -10,11 +10,13 @@ def save_landing_matches(path_origin, path_landing_matches):
     df_matches_added_col_competition_id = df_matches.withColumn("competition_id", F.col("competition.competition_id"))
     df_matches_added_columns_competition_id_season_id = df_matches_added_col_competition_id.withColumn("season_id", F.col("season.season_id"))
     df_matches_added_columns_competition_id_season_id.write.partitionBy("competition_id","season_id").format("json").mode("overwrite").save(path_landing_matches)
+    spark.stop()
     
 
 def save_bronze_matches(path_origin, path_bronze_matches):
     df_matches_landing = spark.read.json(path_origin)
     df_matches_landing.write.partitionBy("competition_id","season_id").mode("overwrite").parquet(path_bronze_matches)
+    spark.stop()
     
    
 def save_silver_matches():
