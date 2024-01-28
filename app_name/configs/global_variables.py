@@ -4,3 +4,5 @@ AWS_SECRET_ACCESS_KEY = "password"
 
 BUCKET_ORIGIN = "sor"
 PREFIX_BUCKET_ORIGIN = "football/data/"
+
+LINEUPS = "lineups"
