@@ -10,3 +10,5 @@ BUCKET_LANDING = "landing/"
 BUCKET_BRONZE = "bronze/"
 
 LINEUPS = "lineups"
+
+EVENTS = "events"
